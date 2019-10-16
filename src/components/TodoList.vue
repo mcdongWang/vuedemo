@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="ccc">
         <p
             v-for="(item, index) in list"
             :class="{'done': item.status}"
@@ -22,7 +22,7 @@ export default {
     toggleList(index) {
       console.log(index);
       this.list[index].status = !this.list[index].status;
-      // this.$set(this.list[index], 'status', !this.list[index].status);
+    //   this.$set(this.list[index], 'status', !this.list[index].status);
     },
   },
   props: ['todoData'],

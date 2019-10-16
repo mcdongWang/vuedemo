@@ -1,7 +1,17 @@
 <template>
   <div class="about">
     <!-- <h1>This is an about page</h1> -->
-    <p>{{message}}</p>
+    <!-- <p v-once>{{message}}</p> -->
+    <p>{{comMessage}}</p>
+    <p
+      v-for="(value, index) in 10"
+      :key="value"
+    >
+      {{value + '' + index}}
+    </p>
+    <!-- <p v-html="htmlcode"></p> -->
+    <!-- <p>{{htmlcode}}</p> -->
+    <input :disabled="dis">
     <input type="text" v-model="message">
     <br>
     <span @click="getInfo">获取输入框的值</span>
@@ -17,6 +27,7 @@
     </div> -->
     <todo-list
       :todoData="todoItemList"
+      class="aaaa"
     >
     </todo-list>
   </div>
@@ -28,6 +39,8 @@ export default {
 
   data() {
     return {
+      dis: false,
+      htmlcode: '<h2>3333</h2>',
       list: ['123', '456', '789'],
       todoItemList: [{
         value: '123',
@@ -39,10 +52,16 @@ export default {
         value: '789',
         status: false,
       }],
-      message: 'Hello world',
+      message: 'Hello, world!',
       test1: `zhongyou${new Date().toLocaleString()}`,
       bool: true,
     };
+  },
+  computed: {
+    comMessage() {
+      console.log('computed once');
+      return this.message.split('').reverse().join('');
+    },
   },
   methods: {
     getInfo() {
@@ -56,6 +75,7 @@ export default {
   components: {
     todoList,
   },
+
   mounted() {
     // let _this = this
     // setTimeout(function () {
@@ -65,10 +85,14 @@ export default {
     // setTimeout(() => {
     //   this.list.push('hello')
     // }, 3000);
-
+    console.log('123');
     setTimeout(() => {
-      this.bool = false;
+      // this.bool = false;
+      this.message = 'heeeeeeeeeeee';
     }, 5000);
+  },
+  created() {
+    console.log(this.message);
   },
 };
 </script>
