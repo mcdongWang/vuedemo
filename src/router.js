@@ -14,6 +14,20 @@ export default new Router({
       component: Home,
     },
     {
+      path: '/user/:id',
+      name: 'user',
+      component: () => import(/* webpackChunkName: "hl.user" */ './views/User.vue'),
+      children: [{
+        path: 'post',
+        name: 'userpost',
+        component: () => import('./components/Post.vue'),
+      }, {
+        path: 'profile',
+        name: 'userprofile',
+        component: () => import('./components/Profile.vue'),
+      }],
+    },
+    {
       path: '/about',
       name: 'about',
       // route level code-splitting
