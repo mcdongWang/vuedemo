@@ -11,36 +11,36 @@ import queryComp from '@/components/Query.vue';
 
 export default {
   name: 'home',
-  data () {
+  data() {
     return {
       queryData: [{
         title: '筛选内容1',
         value: 'hello world',
         type: 'input', // select input switch
-        ext: {}
+        ext: {},
       }, {
         title: '筛选内容2',
         value: 'FPX NO1!',
         type: 'input', // select input switch
-        ext: {}
+        ext: {},
       }, {
         title: '筛选类型',
         value: '333',
         type: 'select', // select input switch
         ext: {
-          options: ['222', '333', '555'] // select needs
-        }
+          options: ['222', '333', '555'], // select needs
+        },
       }, {
         title: '筛选开关',
         value: true, // switch value support bool
         type: 'switch', // select input switch
-        ext: {}
-      }]
-    }
+        ext: {},
+      }],
+    };
   },
   components: {
     // HelloWorld,
-    queryComp
+    queryComp,
   },
 };
 </script>
